@@ -16,6 +16,7 @@ library(ggtext)
 ## Access the data ----
 
 # ch.kof.consensus.q_qn_prices_[cy,ny,5y].[count,max,mean,median,mean,stdev]
+# ch.kof.consensus.q_qn_prices_prob_[cy,ny,5y]_[1-17].[count,max,mean,median,mean,stdev]
 
 ### Current year ----
 kof_cons_pr_cy.mean <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_prices_cy.mean")
@@ -50,13 +51,12 @@ kof_cons_pr_cy.stdev <- ts(
 ts_df(ts_c(kof_cons_pr_cy.max, kof_cons_pr_cy.mean, kof_cons_pr_cy.min, kof_cons_pr_cy.stdev)) |> 
   pivot_wider(names_from = id, values_from = value) |> 
   ggplot() +
-  geom_line(mapping = aes(x = time, y = kof_cons_pr_cy.mean), color = "black", linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  geom_hline(yintercept = 2, color = "#374e8e", linetype = "solid", show.legend = FALSE) +
+  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_cy.min, ymax = kof_cons_pr_cy.max), fill = "lightgrey", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_cy.mean - kof_cons_pr_cy.stdev, ymax = kof_cons_pr_cy.mean + kof_cons_pr_cy.stdev), fill = "darkgrey", alpha = 0.5) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
+  geom_line(mapping = aes(x = time, y = kof_cons_pr_cy.mean), color = "black", linewidth = 1) +
+  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
   scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
@@ -104,13 +104,12 @@ ts_df(
   ) |> 
   pivot_wider(names_from = id, values_from = value) |> 
   ggplot() +
-  geom_line(mapping = aes(x = time, y = kof_cons_pr_ny.mean), color = "black", linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  geom_hline(yintercept = 2, color = "#374e8e", linetype = "solid", show.legend = FALSE) +
+  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_ny.min, ymax = kof_cons_pr_ny.max), fill = "lightgrey", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_ny.mean - kof_cons_pr_ny.stdev, ymax = kof_cons_pr_ny.mean + kof_cons_pr_ny.stdev), fill = "darkgrey", alpha = 0.5) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
+  geom_line(mapping = aes(x = time, y = kof_cons_pr_ny.mean), color = "black", linewidth = 1) +
+  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
   scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
@@ -156,13 +155,12 @@ kof_cons_pr_5y.stdev <- ts(
 ts_df(ts_c(kof_cons_pr_5y.max, kof_cons_pr_5y.mean, kof_cons_pr_5y.min, kof_cons_pr_5y.stdev)) |> 
   pivot_wider(names_from = id, values_from = value) |> 
   ggplot() +
-  geom_line(mapping = aes(x = time, y = kof_cons_pr_5y.mean), color = "black", linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  geom_hline(yintercept = 2, color = "#374e8e", linetype = "solid", show.legend = FALSE) +
+  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_5y.min, ymax = kof_cons_pr_5y.max), fill = "lightgrey", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_5y.mean - kof_cons_pr_5y.stdev, ymax = kof_cons_pr_5y.mean + kof_cons_pr_5y.stdev), fill = "darkgrey", alpha = 0.5) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  geom_ribbon(mapping = aes(x = time, ymin = 0, ymax = 2), fill = "#8aabfd", alpha = 0.2) +
+  geom_line(mapping = aes(x = time, y = kof_cons_pr_5y.mean), color = "black", linewidth = 1) +
+  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
   scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
@@ -175,4 +173,4 @@ ts_df(ts_c(kof_cons_pr_5y.max, kof_cons_pr_5y.mean, kof_cons_pr_5y.min, kof_cons
 ggsave(filename = "Indicators/KOF_Consensus/Prices/KOF_ConsPrices_5y.png", width = 8, height = 4)
 graphics.off()
 
-# ch.kof.consensus.q_qn_prices_prob_[cy,ny,5y]_[1-17].[count,max,mean,median,mean,stdev]
+# END
