@@ -19,14 +19,16 @@ library(ggtext)
 
 ## Access the data ----
 list_available_collections()
-# 16  ds_kof_baublatt_ausblick_fitted_qtr: KOF-Baublatt-Ausblick fitted values
-# 17 ds_kof_baublatt_ausblick_nowcast_qtr: KOF-Baublatt-Ausblick Realtime
-# 18         ds_kof_baublatt_ausblick_qtr: KOF-Baublatt-Ausblick
+# ds_kof_baublatt_ausblick_fitted_qtr: KOF-Baublatt-Ausblick fitted values
+# ds_kof_baublatt_ausblick_nowcast_qtr: KOF-Baublatt-Ausblick Realtime
+# ds_kof_baublatt_ausblick_qtr: KOF-Baublatt-Ausblick
 
+
+
+### Nominal construction investment ----
 list_keys_in_collection(collectionname = "ds_kof_baublatt_ausblick_qtr")
 # ch.kof.baublatt.ausblick.nom.chf_pct, ch.seco.gdp_exp.nom_q_p5111c_pct.kof_baublatt_ausblick
 
-### Nominal construction investment ----
 kof_nom_const_inv <- get_time_series(ts_keys = "ch.seco.gdp_exp.nom_q_p5111c_pct.kof_baublatt_ausblick")
 kof_nom_const_inv <- ts(
   data = kof_nom_const_inv$ch.seco.gdp_exp.nom_q_p5111c_pct.kof_baublatt_ausblick, 
@@ -36,8 +38,6 @@ kof_nom_const_inv <- ts(
 
 ### KOF-Baublatt-Ausblick based on building permits -----
 kof_baubl_ausbl <- get_time_series(ts_keys = "ch.kof.baublatt.ausblick.nom.chf_pct")
-
-## Plot the data ----
 kof_baubl_ausbl <- ts(
   data = kof_baubl_ausbl$ch.kof.baublatt.ausblick.nom.chf_pct, 
   start = c(2023, 1), 

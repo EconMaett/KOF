@@ -46,7 +46,6 @@ kof_empl_ind <- ts(
 )
 
 ## Plot the data ----
-
 ts_df(ts_c(kof_empl_ass, kof_empl_exp, kof_empl_ind)) |> 
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +

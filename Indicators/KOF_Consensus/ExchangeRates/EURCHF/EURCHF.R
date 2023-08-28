@@ -16,7 +16,6 @@ library(ggtext)
 
 
 ## Access the data ----
-
 # ch.kof.consensus.q_qn_eurchf_[3m,12m].[count,max,mean,median,mean,stdev]
 
 ### 3-months ahead ----

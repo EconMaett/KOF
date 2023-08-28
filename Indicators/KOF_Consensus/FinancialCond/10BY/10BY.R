@@ -14,7 +14,6 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
-
 ## Access the data ----
 
 # ch.kof.consensus.q_qn_10yyield_[3m,12m].[count,max,mean,median,min,stdev]

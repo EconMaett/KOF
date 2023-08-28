@@ -14,7 +14,6 @@ library(kofdata)
 library(ggtext)
 
 ## Access the data ----
-
 # ch.kof.consensus.q_qn_investequ_[cy,ny].[count,max,mean,median,mean,stdev]
 
 ### Current year ----

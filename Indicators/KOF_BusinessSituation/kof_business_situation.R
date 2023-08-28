@@ -49,7 +49,7 @@ ts_df(kof_bs_total) |>
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(date_breaks = "1 year", date_labels = "%y") +
-  scale_y_continuous(limits = c(-40, 40)) +
+  scale_y_continuous(limits = c(-40, 40), breaks = c(-40, -20, 0, 20, 40)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "KOF business situation",
@@ -70,7 +70,6 @@ kof_bs_inu <- ts(
   frequency = 12
 )
 
-
 # Detailhandelsunternehmen (DHU) ----
 kof_bs_dhu <- get_time_series(ts_keys = "ch.kof.dhu.ng08.fx.q_ql_ass_bs.balance.d11")
 kof_bs_dhu <- ts(
@@ -78,7 +77,6 @@ kof_bs_dhu <- ts(
   start = c(1973, 2),
   frequency = 12
 )
-
 
 # Bauunternehmen (BAU) ----
 kof_bs_bau <- get_time_series(ts_keys = "ch.kof.bau.ng08.fx.q_ql_ass_bs.balance.d11")
@@ -88,7 +86,6 @@ kof_bs_bau <- ts(
   frequency = 12
 )
 
-
 # Finanz- und Versicherungsunternehmen (FVU) ----
 kof_bs_fvu <- get_time_series(ts_keys = "ch.kof.fvu.ng08.fx.q_ql_ass_bs.balance.d11")
 kof_bs_fvu <- ts(
@@ -96,7 +93,6 @@ kof_bs_fvu <- ts(
   start = c(2010, 7),
   frequency = 12
 )
-
 
 # Dienstleistungsunternehmen (DLU) ----
 kof_bs_dlu <- get_time_series(ts_keys = "ch.kof.dlu.ng08.fx.q_ql_ass_bs.balance.d11")
@@ -131,7 +127,7 @@ ts_df(
   labs(
     title = "KOF business conditions",
     subtitle = "<span style = 'color: #374e8e;'>Construction</span>, <span style = 'color: #478c5b;'>retail sales</span>, <span style = 'color: #ac004f;'>services</span>, <span style = 'color: #ae49a2;'>finance</span>, <span style = 'color: #a07bde;'>wholesale</span>, <span style = 'color: #8aabfd;'>industry</span>, <span style = 'color: #df7c18;'>total</span>.",
-    caption = "",
+    caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   ) +
   theme_bw() +
@@ -139,6 +135,5 @@ ts_df(
 
 ggsave(filename = "Indicators/KOF_BusinessSituation/KOF_BusinessSituationSubInd.png", width = 8, height = 4)
 graphics.off()
-
 
 # END

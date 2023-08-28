@@ -48,7 +48,6 @@ ggsave(filename = "KOF_Nowcasting_Lab/kof_nowcasting_lab_3m.png", width = 8, hei
 graphics.off()
 
 ## Plot the 2-quarters ahead forecasts ----
-
 kof_ncst_data |> 
   mutate(
     kofcast_datestamp = dmy(kofcast_datestamp)
@@ -73,6 +72,5 @@ kof_ncst_data |>
 
 ggsave(filename = "KOF_Nowcasting_Lab/kof_nowcasting_lab_12m.png", width = 8, height = 4)
 graphics.off()
-
 
 # END

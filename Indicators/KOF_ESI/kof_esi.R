@@ -22,8 +22,6 @@ library(ggtext)
 eu_esi <- get_eurostat(id = "teibs010", time_format = "date", select_time = "M", 
                        sinceTimePeriod = "1990-01-01")
 
-unique(eu_esi$geo)
-
 eu_esi <- eu_esi |> 
   filter(geo == "EU27_2020") |> 
   select(time, values) |> 
