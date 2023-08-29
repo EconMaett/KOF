@@ -51,6 +51,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ausbl)) |>
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>KOF-Baublatt-Index</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",
@@ -87,6 +88,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_fitted)) |>
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>Fitted values</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",
@@ -118,6 +120,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ncst)) |>
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>Nowcast of KOF-Baublatt-Index</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",
