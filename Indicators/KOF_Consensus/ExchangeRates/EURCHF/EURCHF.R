@@ -14,6 +14,7 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2010-01-01"
 
 ## Access the data ----
 # ch.kof.consensus.q_qn_eurchf_[3m,12m].[count,max,mean,median,mean,stdev]
@@ -57,7 +58,7 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_3m.mean - kof_cons_eurchf_3m.stdev, ymax = kof_cons_eurchf_3m.mean + kof_cons_eurchf_3m.stdev), fill = "darkgrey", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_eurchf_3m.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 1, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(0.5, 2)) +
   theme_bw() +
   labs(
@@ -109,7 +110,7 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_12m.mean - kof_cons_eurchf_12m.stdev, ymax = kof_cons_eurchf_12m.mean + kof_cons_eurchf_12m.stdev), fill = "darkgrey", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_eurchf_12m.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 1, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(0.5, 2)) +
   theme_bw() +
   labs(

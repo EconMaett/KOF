@@ -14,6 +14,8 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2018-01-01"
+
 list_keys_in_collection(collectionname = "ogd_ch.kof.ie")
 # Assessment (Urteil): ch.kof.ie.retro.ch_total.ass.d11
 # Expectation (Erwartung): ch.kof.ie.retro.ch_total.exp.d11
@@ -50,11 +52,12 @@ ts_df(ts_c(kof_empl_ass, kof_empl_exp, kof_empl_ind)) |>
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(limits = c(-25, 20), breaks = seq(-25, 20, 5)) +
   scale_color_manual(values = c("#ae49a2", "#006d64", "#478c5b")) +
   labs(
     title = "KOF Employment Indicators",
-    subtitle = "<span style = 'color: #ae49a2;'>Assessment</span>, <span style = 'color: #006d64;'>expectations</span>, <span style = 'color: #478c5b;'>overall</span>.",
+    subtitle = "<span style = 'color: #ae49a2;'>Assessment</span>, <span style = 'color: #006d64;'>Expectations</span>, <span style = 'color: #478c5b;'>Overall</span>.",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   ) +

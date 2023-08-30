@@ -14,6 +14,9 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+
+start_date <- "2018-01-01"
+
 ## Access the data ----
 
 # bs_indicator: KOF Geschäftslage Indikator und Subbranchen
@@ -48,7 +51,7 @@ ts_df(kof_bs_total) |>
   ggplot(mapping = aes(x = time, y = value)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-40, 40), breaks = c(-40, -20, 0, 20, 40)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
@@ -121,8 +124,8 @@ ts_df(
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  # scale_y_continuous(limits = c(-60, 60)) +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(limits = c(-30, 70), breaks = seq(-30, 70, 20)) +
   scale_color_manual(values = c("#374e8e", "#478c5b", "#ac004f", "#ae49a2", "#a07bde", "#8aabfd", "#df7c18")) +
   labs(
     title = "KOF business conditions",

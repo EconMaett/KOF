@@ -13,6 +13,8 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2017-01-01"
+
 ## Access the data ----
 # ch.kof.consensus.q_qn_realgdp_[cy,ny,5y].[count,max,mean,median,mean,stdev]
 
@@ -55,7 +57,7 @@ ts_df(ts_c(kof_cons_gdp_cy.max, kof_cons_gdp_cy.mean, kof_cons_gdp_cy.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_cy.mean - kof_cons_gdp_cy.stdev, ymax = kof_cons_gdp_cy.mean + kof_cons_gdp_cy.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_cy.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-6, 6)) +
   theme_bw() +
   labs(
@@ -105,7 +107,7 @@ ts_df(ts_c(kof_cons_gdp_ny.max, kof_cons_gdp_ny.mean, kof_cons_gdp_ny.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_ny.mean - kof_cons_gdp_ny.stdev, ymax = kof_cons_gdp_ny.mean + kof_cons_gdp_ny.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_ny.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-6, 6)) +
   theme_bw() +
   labs(
@@ -122,28 +124,28 @@ graphics.off()
 kof_cons_gdp_5y.mean <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_realgdp_5y.mean")
 kof_cons_gdp_5y.mean <- ts(
   data = kof_cons_gdp_5y.mean$ch.kof.consensus.q_qn_realgdp_5y.mean,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_gdp_5y.min <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_realgdp_5y.min")
 kof_cons_gdp_5y.min <- ts(
   data = kof_cons_gdp_5y.min$ch.kof.consensus.q_qn_realgdp_5y.min,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_gdp_5y.max <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_realgdp_5y.max")
 kof_cons_gdp_5y.max <- ts(
   data = kof_cons_gdp_5y.max$ch.kof.consensus.q_qn_realgdp_5y.max,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_gdp_5y.stdev <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_realgdp_5y.stdev")
 kof_cons_gdp_5y.stdev <- ts(
   data = kof_cons_gdp_5y.stdev$ch.kof.consensus.q_qn_realgdp_5y.stdev,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
@@ -155,11 +157,11 @@ ts_df(ts_c(kof_cons_gdp_5y.max, kof_cons_gdp_5y.mean, kof_cons_gdp_5y.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_5y.mean - kof_cons_gdp_5y.stdev, ymax = kof_cons_gdp_5y.mean + kof_cons_gdp_5y.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_5y.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-6, 6)) +
   theme_bw() +
   labs(
-    title = "KOF consensus real GDP growth forecast - 5 yeary",
+    title = "KOF consensus real GDP growth forecast - 5 years",
     subtitle = "",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""

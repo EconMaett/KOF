@@ -14,6 +14,8 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2018-01-01"
+
 ## Access the data ----
 
 list_keys_in_collection(collectionname = "ogd_ch.kof.globalbaro")
@@ -40,7 +42,7 @@ ts_df(ts_c(kof_globalbaro_lead, kof_globalbaro_coi)) |>
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 100, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(50, 150)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(

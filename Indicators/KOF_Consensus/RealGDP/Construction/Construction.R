@@ -13,6 +13,8 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2017-01-01"
+
 ## Access the data ----
 
 # ch.kof.consensus.q_qn_investbau_[cy,ny].[count,max,mean,median,mean,stdev]
@@ -50,12 +52,13 @@ kof_cons_investbau_cy.stdev <- ts(
 ts_df(ts_c(kof_cons_investbau_cy.max, kof_cons_investbau_cy.mean, kof_cons_investbau_cy.min, kof_cons_investbau_cy.stdev)) |> 
   pivot_wider(names_from = id, values_from = value) |> 
   ggplot() +
+  geom_line(mapping = aes(x = time, y = kof_cons_investbau_cy.mean), color = "black", linewidth = 1) +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(limits = c(-6, 6)) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_cy.min, ymax = kof_cons_investbau_cy.max), fill = "lightgray", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_cy.mean - kof_cons_investbau_cy.stdev, ymax = kof_cons_investbau_cy.mean + kof_cons_investbau_cy.stdev), fill = "darkgray", alpha = 0.5) +
-  geom_line(mapping = aes(x = time, y = kof_cons_investbau_cy.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
-  scale_y_continuous(limits = c(-6, 6)) +
+
   theme_bw() +
   labs(
     title = "KOF consensus real construction investment forecast - current year",
@@ -105,7 +108,7 @@ ts_df(ts_c(kof_cons_investbau_ny.max, kof_cons_investbau_ny.mean, kof_cons_inves
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_ny.mean - kof_cons_investbau_ny.stdev, ymax = kof_cons_investbau_ny.mean + kof_cons_investbau_ny.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_investbau_ny.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-6, 6)) +
   theme_bw() +
   labs(

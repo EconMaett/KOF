@@ -16,6 +16,8 @@ library(kofdata)
 library(eurostat) # To access the ESI for the EU
 library(ggtext)
 
+start_date <- "2018-01-01"
+
 ## Access the data ----
 
 ### Access the EU ESI ----
@@ -47,7 +49,8 @@ ts_df(ts_c(eu_esi, kof_esi)) |>
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 100, color = "black", linetype = "dashed", show.legend = FALSE) +
   geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(limits = c(50, 125), breaks = seq(50, 125, 25)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "Economic Sentiment Indicators (ESI)",
@@ -55,7 +58,6 @@ ts_df(ts_c(eu_esi, kof_esi)) |>
     caption = "Graph created by @econmaett with data from KOF",
     x = "", y = ""
   ) +
-  ylim(0, 150) +
   theme_bw() +
   theme(plot.subtitle = element_markdown(), legend.position = "none")
 

@@ -13,6 +13,8 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
+start_date <- "2017-01-01"
+
 ## Access the data ----
 # ch.kof.consensus.q_qn_investequ_[cy,ny].[count,max,mean,median,mean,stdev]
 
@@ -53,7 +55,7 @@ ts_df(ts_c(kof_cons_equip_cy.max, kof_cons_equip_cy.mean, kof_cons_equip_cy.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_cy.mean - kof_cons_equip_cy.stdev, ymax = kof_cons_equip_cy.mean + kof_cons_equip_cy.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_equip_cy.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-15, 15)) +
   theme_bw() +
   labs(
@@ -104,7 +106,7 @@ ts_df(ts_c(kof_cons_equip_ny.max, kof_cons_equip_ny.mean, kof_cons_equip_ny.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_ny.mean - kof_cons_equip_ny.stdev, ymax = kof_cons_equip_ny.mean + kof_cons_equip_ny.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_equip_ny.mean), color = "black", linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-15, 15)) +
   theme_bw() +
   labs(
