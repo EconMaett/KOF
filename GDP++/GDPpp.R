@@ -6,6 +6,7 @@
 # is shown to undergo smaller revisions than a simple average of GDE and GDI as published
 # by the BEA (Aruoba et al. (2016)).
 # GDP++ puts more weight on the expenditure side (Jacobs, Sarferaz, Sturm and van Norden (2020)).
+#
 # Feel free to copy, adapt, and use this code for your own purposes at
 # your own risk.
 #
