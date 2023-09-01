@@ -1,11 +1,9 @@
 # ************************************************************************
 # KOF Business Situation Indicator ----
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-business-situation-indicator.html
-#
 # Feel free to copy, adapt, and use this code for your own purposes at
 # your own risk.
-#
-# Matthias Spichiger, 2023 (matthias.spichiger@bluewin.ch)
+# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----
@@ -13,7 +11,6 @@ library(tidyverse)
 library(tsbox)
 library(kofdata)
 library(ggtext)
-
 
 start_date <- "2018-01-01"
 

@@ -4,11 +4,9 @@
 # URL: https://kof.ethz.ch/prognosen-indikatoren/indikatoren/kof-baublatt-ausblick.html
 # Based on construction permits, the KOF-Baublatt-Ausblick predicts nominal
 # construction investment for the next four quarters
-#
 # Feel free to copy, adapt, and use this code for your own purposes at
 # your own risk.
-#
-# Matthias Spichiger, 2023 (matthias.spichiger@bluewin.ch)
+# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----
@@ -17,7 +15,9 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
-start_date <- "2010-01-01"## Access the data ----
+start_date <- "2010-01-01"
+
+## Access the data ----
 
 list_available_collections()
 # ds_kof_baublatt_ausblick_fitted_qtr: KOF-Baublatt-Ausblick fitted values
