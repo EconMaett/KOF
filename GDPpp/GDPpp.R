@@ -1,15 +1,9 @@
 # ************************************************************************
-# GDP++ ----
+# GDPpp ----
 # ************************************************************************
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/gdpplusplus.html
-# GDP++ is a new measure for U.S. GDP growth resulting from data reconciliation that
-# is shown to undergo smaller revisions than a simple average of GDE and GDI as published
-# by the BEA (Aruoba et al. (2016)).
-# GDP++ puts more weight on the expenditure side (Jacobs, Sarferaz, Sturm and van Norden (2020)).
-#
 # Feel free to copy, adapt, and use this code for your own purposes at
 # your own risk.
-#
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
@@ -18,16 +12,20 @@ library(tidyverse)
 library(fredr)
 library(ggtext)
 
-usrecdp <- read_csv(file = "GDP++/NBER_Recession_Dates.csv")
+usrecdp <- read_csv(file = "GDPpp/NBER_Recession_Dates.csv")
 
 ## Access the data ----
 
-### Access GDP++ from KOF ----
+### Access GDPpp from KOF ----
+# GDP++ is a new measure for U.S. GDP growth resulting from data reconciliation that
+# is shown to undergo smaller revisions than a simple average of GDE and GDI as published
+# by the BEA (Aruoba et al. (2016)).
+# GDP++ puts more weight on the expenditure side (Jacobs, Sarferaz, Sturm and van Norden (2020)).
 GDPpp_url <- "https://ethz.ch/content/dam/ethz/special-interest/dual/kof-dam/documents/Webseite_Dokumente/GDPplusplus_data.xls"
-download.file(url = GDPpp_url, destfile = "GDP++/GDPpp.xls", method = "curl")
+download.file(url = GDPpp_url, destfile = "GDPpp/GDPpp.xls", method = "curl")
 
-GDPpp  <- readxl::read_excel(path = "GDP++/GDPpp.xls") |> 
-  rename(value = `GDP++`) |> 
+GDPpp  <- readxl::read_excel(path = "GDPpp/GDPpp.xls") |> 
+  rename(value = `GDPpp`) |> 
   mutate(
     date = str_replace_all(date, pattern = c(" Q1" = "-01-01", " Q2" = "-04-01", " Q3" = "-07-01", " Q4" = "-10-01"))
   ) |> 
@@ -65,8 +63,8 @@ GDPpp  <- readxl::read_excel(path = "GDP++/GDPpp.xls") |>
 # for the shocks. 
 # We re-estimate the model for every new vintage using the method of maximum likelihood.
 GDPp_url <- "https://www.philadelphiafed.org/-/media/frbp/assets/data-visualizations/gdpplus.xlsx"
-download.file(url = GDPp_url, destfile = "GDP++/GDPp.xlsx", method = "curl")
-GDPp <- readxl::read_excel(path = "GDP++/GDPp.xlsx") |> 
+download.file(url = GDPp_url, destfile = "GDPpp/GDPp.xlsx", method = "curl")
+GDPp <- readxl::read_excel(path = "GDPpp/GDPp.xlsx") |> 
   mutate(
     date = date(paste0(OBS_YEAR, "-", 3*OBS_QUARTER-2, "-01"))
   ) |> 
@@ -101,7 +99,7 @@ rbind(GDPp, GDPpp) |>
   ) +
   theme(plot.subtitle = element_markdown(), legend.position = "none")
 
-ggsave(filename = "GDP++/GDPMeasures.png", width = 8, height = 4)
+ggsave(filename = "GDPpp/GDPMeasures.png", width = 8, height = 4)
 graphics.off()
 
 # END
