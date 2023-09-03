@@ -1,8 +1,7 @@
 # ************************************************************************
 # KOF Business Situation Indicator ----
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-business-situation-indicator.html
-# Feel free to copy, adapt, and use this code for your own purposes at
-# your own risk.
+# Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
@@ -46,11 +45,10 @@ kof_bs_total <- ts(
 ## Plot the data ----
 ts_df(kof_bs_total) |> 
   ggplot(mapping = aes(x = time, y = value)) +
-  geom_line(linewidth = 1) +
+  geom_line(linewidth = 1, color = "#374e8e") +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-40, 40), breaks = c(-40, -20, 0, 20, 40)) +
-  scale_color_manual(values = c("#1B9E77", "#374e8e")) +
+  scale_y_continuous(limits = c(-30, 70), breaks = seq(-30, 70, 20)) +
   labs(
     title = "KOF business situation",
     subtitle = "Total index",
@@ -123,10 +121,10 @@ ts_df(
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-30, 70), breaks = seq(-30, 70, 20)) +
-  scale_color_manual(values = c("#374e8e", "#478c5b", "#ac004f", "#ae49a2", "#a07bde", "#8aabfd", "#df7c18")) +
+  scale_color_manual(values = c("#a07bde", "#478c5b", "#ac004f", "#ae49a2", "#a07bde", "#8aabfd", "#df7c18")) +
   labs(
     title = "KOF business conditions",
-    subtitle = "<span style = 'color: #374e8e;'>Construction</span>, <span style = 'color: #478c5b;'>retail sales</span>, <span style = 'color: #ac004f;'>services</span>, <span style = 'color: #ae49a2;'>finance</span>, <span style = 'color: #a07bde;'>wholesale</span>, <span style = 'color: #8aabfd;'>industry</span>, <span style = 'color: #df7c18;'>total</span>.",
+    subtitle = "<span style = 'color: #a07bde;'>Construction</span>, <span style = 'color: #478c5b;'>retail sales</span>, <span style = 'color: #ac004f;'>services</span>, <span style = 'color: #ae49a2;'>finance</span>, <span style = 'color: #a07bde;'>wholesale</span>, <span style = 'color: #8aabfd;'>industry</span>, <span style = 'color: #374e8e;'>total</span>.",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   ) +

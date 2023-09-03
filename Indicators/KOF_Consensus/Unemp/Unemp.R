@@ -1,8 +1,7 @@
 # ************************************************************************
 # Unemployment ----
 # ************************************************************************
-# Feel free to copy, adapt, and use this code for your own purposes at
-# your own risk.
+# Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
@@ -59,7 +58,7 @@ ts_df(ts_c(kof_cons_unemp_cy.max, kof_cons_unemp_cy.mean, kof_cons_unemp_cy.min,
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast - current year",
-    subtitle = "",
+    subtitle = "In percent",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   )
@@ -72,7 +71,7 @@ kof_cons_unemp_ny.mean <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp
 kof_cons_unemp_ny.mean <- ts(
   data = kof_cons_unemp_ny.mean$ch.kof.consensus.q_qn_unemp_ny.mean,
   start = c(2001, 2),
-  frequency = 4
+  frequency = 12
 )
 
 kof_cons_unemp_ny.min <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp_ny.min")
@@ -108,7 +107,7 @@ ts_df(ts_c(kof_cons_unemp_ny.max, kof_cons_unemp_ny.mean, kof_cons_unemp_ny.min,
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast - next year",
-    subtitle = "",
+    subtitle = "In percent",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   )
@@ -120,28 +119,28 @@ graphics.off()
 kof_cons_unemp_5y.mean <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp_5y.mean")
 kof_cons_unemp_5y.mean <- ts(
   data = kof_cons_unemp_5y.mean$ch.kof.consensus.q_qn_unemp_5y.mean,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_unemp_5y.min <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp_5y.min")
 kof_cons_unemp_5y.min <- ts(
   data = kof_cons_unemp_5y.min$ch.kof.consensus.q_qn_unemp_5y.min,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_unemp_5y.max <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp_5y.max")
 kof_cons_unemp_5y.max <- ts(
   data = kof_cons_unemp_5y.max$ch.kof.consensus.q_qn_unemp_5y.max,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
 kof_cons_unemp_5y.stdev <- get_time_series(ts_keys = "ch.kof.consensus.q_qn_unemp_5y.stdev")
 kof_cons_unemp_5y.stdev <- ts(
   data = kof_cons_unemp_5y.stdev$ch.kof.consensus.q_qn_unemp_5y.stdev,
-  start = c(2001, 2),
+  start = c(2015, 2),
   frequency = 4
 )
 
@@ -152,12 +151,12 @@ ts_df(ts_c(kof_cons_unemp_5y.max, kof_cons_unemp_5y.mean, kof_cons_unemp_5y.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_5y.min, ymax = kof_cons_unemp_5y.max), fill = "lightgray", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_5y.mean - kof_cons_unemp_5y.stdev, ymax = kof_cons_unemp_5y.mean + kof_cons_unemp_5y.stdev), fill = "darkgray", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_unemp_5y.mean), color = "black", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  # scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(0, 6), breaks = seq(0, 6, 1)) +
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast - 5 yeary",
-    subtitle = "",
+    subtitle = "In percent",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   )

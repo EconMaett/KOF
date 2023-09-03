@@ -1,10 +1,7 @@
 # ************************************************************************
 # KOF Jobroom ----
 # URL: https://www.job-room.ch/home/job-seeker
-#
-# Feel free to copy, adapt, and use this code for your own purposes at
-# your own risk.
-#
+# Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 

@@ -2,11 +2,10 @@
 # KOF Swiss job tracker ----
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/swiss-job-tracker.html
 # Project website: https://swissjobtracker.ch/#/
-# Swiss Job Tracker shows the number of job advertisements posted online in Switzerland over time. The tracker is updated weekly and thus allows monitoring of the Swiss labour market in real time.
-#
-# Feel free to copy, adapt, and use this code for your own purposes at
-# your own risk.
-#
+# Swiss Job Tracker shows the number of job advertisements posted online 
+# in Switzerland over time. 
+# The tracker is updated weekly and thus allows monitoring of the Swiss labor market in real time.
+# Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 

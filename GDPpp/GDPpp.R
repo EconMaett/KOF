@@ -1,9 +1,8 @@
 # ************************************************************************
-# GDPpp ----
+# GDP++ ----
 # ************************************************************************
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/gdpplusplus.html
-# Feel free to copy, adapt, and use this code for your own purposes at
-# your own risk.
+# Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
@@ -12,11 +11,11 @@ library(tidyverse)
 library(fredr)
 library(ggtext)
 
-usrecdp <- read_csv(file = "GDPpp/NBER_Recession_Dates.csv")
+usrecdp <- read_csv(file = "GDPpp/US_NBER_Recession_Dates.csv")
 
 ## Access the data ----
 
-### Access GDPpp from KOF ----
+### Access GDP++ from KOF ----
 # GDP++ is a new measure for U.S. GDP growth resulting from data reconciliation that
 # is shown to undergo smaller revisions than a simple average of GDE and GDI as published
 # by the BEA (Aruoba et al. (2016)).
@@ -25,7 +24,7 @@ GDPpp_url <- "https://ethz.ch/content/dam/ethz/special-interest/dual/kof-dam/doc
 download.file(url = GDPpp_url, destfile = "GDPpp/GDPpp.xls", method = "curl")
 
 GDPpp  <- readxl::read_excel(path = "GDPpp/GDPpp.xls") |> 
-  rename(value = `GDPpp`) |> 
+  rename(value = `GDP++`) |> 
   mutate(
     date = str_replace_all(date, pattern = c(" Q1" = "-01-01", " Q2" = "-04-01", " Q3" = "-07-01", " Q4" = "-10-01"))
   ) |> 
