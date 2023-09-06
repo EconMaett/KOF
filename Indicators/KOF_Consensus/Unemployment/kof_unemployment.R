@@ -66,7 +66,7 @@ ts_df(ts_c(kof_cons_unemp_cy.max, kof_cons_unemp_cy.mean, kof_cons_unemp_cy.min,
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Unemployment/Fig_KOF_Consensus-Unemplyoment_cy.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Unemployment/Fig_KOF_Consensus-Unemplyoment_0y.png", width = 8, height = 4)
 graphics.off()
 
 ### Next year ----
@@ -117,7 +117,7 @@ ts_df(ts_c(kof_cons_unemp_ny.max, kof_cons_unemp_ny.mean, kof_cons_unemp_ny.min,
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Unemployment/Fig_KOF_Consensus-Unemplyoment_ny.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Unemployment/Fig_KOF_Consensus-Unemplyoment_1y.png", width = 8, height = 4)
 graphics.off()
 
 ### Five years ----

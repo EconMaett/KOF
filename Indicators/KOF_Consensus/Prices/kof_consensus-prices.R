@@ -68,7 +68,7 @@ ts_df(ts_c(kof_cons_pr_cy.max, kof_cons_pr_cy.mean, kof_cons_pr_cy.min, kof_cons
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Prices/Fig_KOF_Consensus-Prices_cy.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Prices/Fig_KOF_Consensus-Prices_0y.png", width = 8, height = 4)
 graphics.off()
 
 ### Next year ----
@@ -123,7 +123,7 @@ ts_df(
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Prices/Fig_KOF_Consensus-Prices_ny.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Prices/Fig_KOF_Consensus-Prices_1y.png", width = 8, height = 4)
 graphics.off()
 
 ### Five years ----

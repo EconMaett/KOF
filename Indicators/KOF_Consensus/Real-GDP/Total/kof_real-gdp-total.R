@@ -68,7 +68,7 @@ ts_df(ts_c(kof_cons_gdp_cy.max, kof_cons_gdp_cy.mean, kof_cons_gdp_cy.min, kof_c
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Real-GDP/Total/Fig_KOF_Consensus-Real-GDP-Total_cy.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Real-GDP/Total/Fig_KOF_Consensus-Real-GDP-Total_0y.png", width = 8, height = 4)
 graphics.off()
 
 ### Next year ----
@@ -120,7 +120,7 @@ ts_df(ts_c(kof_cons_gdp_ny.max, kof_cons_gdp_ny.mean, kof_cons_gdp_ny.min, kof_c
     x = "", y = ""
   )
 
-ggsave(filename = "Indicators/KOF_Consensus/Real-GDP/Total/Fig_KOF_Consensus-Real-GDP-Total_ny.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Consensus/Real-GDP/Total/Fig_KOF_Consensus-Real-GDP-Total_1y.png", width = 8, height = 4)
 graphics.off()
 
 ### Five years ----
