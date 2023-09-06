@@ -41,7 +41,7 @@ ts_df(kof_baro) |>
   ) +
   theme_bw()
 
-ggsave(filename = "Indicators/Fig_KOF_Barometer/KOFBarometer.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Barometer/Fig_KOF_Barometer.png", width = 8, height = 4)
 graphics.off()
 
 # END
