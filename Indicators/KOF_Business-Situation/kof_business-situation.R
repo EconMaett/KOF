@@ -134,7 +134,7 @@ ts_df(
   theme_bw() +
   theme(plot.subtitle = element_markdown(), legend.position = "none")
 
-ggsave(filename = "Indicators/KOF_BusinessSituation/KOF_BusinessSituationSubInd.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Business-Situation/Fig_KOF_Business-Situation-Sub-Indexes.png", width = 8, height = 4)
 graphics.off()
 
 # END
