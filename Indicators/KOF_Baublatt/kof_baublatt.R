@@ -2,8 +2,6 @@
 # KOF-Baublatt-Ausblick ----
 # ************************************************************************
 # URL: https://kof.ethz.ch/prognosen-indikatoren/indikatoren/kof-baublatt-ausblick.html
-# Based on construction permits, the KOF-Baublatt-Ausblick predicts nominal
-# construction investment for the next four quarters
 # Feel free to copy, adapt, and use this code for your own purposes.
 # Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
@@ -14,7 +12,9 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
-start_date <- "2010-01-01"
+start_date <- "2005-01-01"
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
+
 
 ## Access the data ----
 
@@ -47,9 +47,10 @@ kof_baubl_ausbl <- ts(
 
 # Plot the data ----
 ts_df(ts_c(kof_nom_const_inv, kof_baubl_ausbl)) |> 
-  ggplot(mapping = aes(x = time, y = value, color = id)) +
-  geom_line(linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  ggplot() +
+  geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
+  geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
+  geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
@@ -62,7 +63,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ausbl)) |>
   theme_bw() +
   theme(plot.title = element_markdown(), legend.position = "none")
 
-ggsave(filename = "Indicators/KOF_Baublatt/NomConstInv_KOFBaublatt.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Baublatt/Fig_Nominal-Construction-Investment-KOF-Baublatt-Index.png", width = 8, height = 4)
 graphics.off()
 
 # ************************************************************************
@@ -84,9 +85,10 @@ kof_baubl_fitted <- ts(
 
 ### Plot the data ----
 ts_df(ts_c(kof_nom_const_inv, kof_baubl_fitted)) |> 
-  ggplot(mapping = aes(x = time, y = value, color = id)) +
-  geom_line(linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  ggplot() +
+  geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
+  geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
+  geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
@@ -99,7 +101,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_fitted)) |>
   theme_bw() +
   theme(plot.title = element_markdown(), legend.position = "none")
 
-ggsave(filename = "Indicators/KOF_Baublatt/NomConstInv_FittedValues.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Baublatt/Fig_Nominal-Construction-Investment-Fitted-Values.png", width = 8, height = 4)
 graphics.off()
 
 
@@ -116,9 +118,10 @@ kof_baubl_ncst <- ts(
 
 ### Plot the data ----
 ts_df(ts_c(kof_nom_const_inv, kof_baubl_ncst)) |> 
-  ggplot(mapping = aes(x = time, y = value, color = id)) +
-  geom_line(linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  ggplot() +
+  geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
+  geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
+  geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
@@ -131,7 +134,7 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ncst)) |>
   theme_bw() +
   theme(plot.title = element_markdown(), legend.position = "none")
 
-ggsave(filename = "Indicators/KOF_Baublatt/NomConstInv_FittedValuesNcst.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Baublatt/Fig_Nominal-Construction-Investment-Fidded-Values-Nowcast.png", width = 8, height = 4)
 graphics.off()
 
 # END

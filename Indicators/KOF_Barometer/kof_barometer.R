@@ -11,7 +11,8 @@ library(tidyverse)
 library(tsbox)
 library(kofdata)
 
-start_date <- "2018-01-01"
+start_date <- "2005-01-01"
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
 
 ## Access the data ----
 list_keys_in_collection(collectionname = "ogd_ch.kof.barometer")
@@ -26,9 +27,10 @@ kof_baro <- ts(
 
 ## Plot the data ----
 ts_df(kof_baro) |> 
-  ggplot(mapping = aes(x = time, y = value)) +
-  geom_line(linewidth = 1, color = "#1B9E77") +
-  geom_hline(yintercept = 100, color = "black", linetype = "dashed", show.legend = FALSE) +
+  ggplot() +
+  geom_hline(yintercept = 100, color = "darkgrey", linetype = "solid", show.legend = FALSE) +
+  geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
+  geom_line(mapping = aes(x = time, y = value), linewidth = 1, color = "#1B9E77") +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(50, 150), breaks = seq(50, 150, 25)) +
   labs(
@@ -39,7 +41,7 @@ ts_df(kof_baro) |>
   ) +
   theme_bw()
 
-ggsave(filename = "Indicators/KOF_Barometer/KOFBarometer.png", width = 8, height = 4)
+ggsave(filename = "Indicators/Fig_KOF_Barometer/KOFBarometer.png", width = 8, height = 4)
 graphics.off()
 
 # END

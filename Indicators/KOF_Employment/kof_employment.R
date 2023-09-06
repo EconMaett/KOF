@@ -11,7 +11,9 @@ library(tsbox)
 library(kofdata)
 library(ggtext)
 
-start_date <- "2018-01-01"
+start_date <- "2005-01-01"
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
+
 
 list_keys_in_collection(collectionname = "ogd_ch.kof.ie")
 # Assessment (Urteil): ch.kof.ie.retro.ch_total.ass.d11
@@ -46,22 +48,26 @@ kof_empl_ind <- ts(
 
 ## Plot the data ----
 ts_df(ts_c(kof_empl_ass, kof_empl_exp, kof_empl_ind)) |> 
-  ggplot(mapping = aes(x = time, y = value, color = id)) +
-  geom_line(linewidth = 1) +
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
+  ggplot() +  
+  geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
+  geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
+  geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
   scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(-25, 20), breaks = seq(-25, 20, 5)) +
-  scale_color_manual(values = c("#ae49a2", "#006d64", "#478c5b")) +
+  scale_color_manual(
+    values = c("#006d64", "#478c5b", "#ae49a2"),
+    breaks = c("kof_empl_exp", "kof_empl_ass", "kof_empl_ind")
+    ) +
   labs(
     title = "KOF Employment Indicators",
-    subtitle = "<span style = 'color: #ae49a2;'>Assessment</span>, <span style = 'color: #006d64;'>Expectations</span>, <span style = 'color: #478c5b;'>Overall</span>.",
+    subtitle = "<span style = 'color: #006d64;'>Expectations</span>, <span style = 'color: #478c5b;'>Assessment</span>, <span style = 'color: #ae49a2;'>Overall</span>.",
     caption = "Graph created by @econmaett with data from KOF.",
     x = "", y = ""
   ) +
   theme_bw() +
   theme(plot.subtitle = element_markdown(), legend.position = "none")
 
-ggsave(filename = "Indicators/KOF_Employment/KOF_Employment.png", width = 8, height = 4)
+ggsave(filename = "Indicators/KOF_Employment/Fig_KOF_Employment.png", width = 8, height = 4)
 graphics.off()
 
 # END
