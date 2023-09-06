@@ -13,7 +13,7 @@ library(kofdata)
 library(ggtext)
 
 start_date <- "2018-01-01"
-chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_CEPR_EA_Monthly_Midpoint.csv")
 
 # ch.kof.jobtracker  
 list_keys_in_collection(collectionname = "ch.kof.jobtracker")

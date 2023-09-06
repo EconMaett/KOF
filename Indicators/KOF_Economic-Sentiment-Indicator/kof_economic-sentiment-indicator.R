@@ -14,7 +14,7 @@ library(eurostat) # To access the ESI for the EU
 library(ggtext)
 
 start_date <- "2007-01-01"
-chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_CEPR_EA_Monthly_Midpoint.csv")
 
 
 ## Access the data ----

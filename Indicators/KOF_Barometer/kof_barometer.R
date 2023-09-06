@@ -12,7 +12,7 @@ library(tsbox)
 library(kofdata)
 
 start_date <- "2005-01-01"
-chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_NBER_US_Daily_Midpoint.csv")
+chrecdp <- read_csv(file = "Recession-Dates/Recession-Dates_CEPR_EA_Monthly_Midpoint.csv")
 
 ## Access the data ----
 list_keys_in_collection(collectionname = "ogd_ch.kof.barometer")
