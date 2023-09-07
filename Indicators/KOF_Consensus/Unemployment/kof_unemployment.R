@@ -56,8 +56,8 @@ ts_df(ts_c(kof_cons_unemp_cy.max, kof_cons_unemp_cy.mean, kof_cons_unemp_cy.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_cy.min, ymax = kof_cons_unemp_cy.max), fill = "#df7c18", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_cy.mean - kof_cons_unemp_cy.stdev, ymax = kof_cons_unemp_cy.mean + kof_cons_unemp_cy.stdev), fill = "#df7c18", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_unemp_cy.mean), color = "#df7c18", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0, 6), breaks = seq(0, 6, 1)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 6), breaks = seq(0, 6, 1)) +
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast",
@@ -107,8 +107,8 @@ ts_df(ts_c(kof_cons_unemp_ny.max, kof_cons_unemp_ny.mean, kof_cons_unemp_ny.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_ny.min, ymax = kof_cons_unemp_ny.max), fill = "#df7c18", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_ny.mean - kof_cons_unemp_ny.stdev, ymax = kof_cons_unemp_ny.mean + kof_cons_unemp_ny.stdev), fill = "#df7c18", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_unemp_ny.mean), color = "#df7c18", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0, 6), breaks = seq(0, 6, 1)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 6), breaks = seq(0, 6, 1)) +
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast",
@@ -158,8 +158,8 @@ ts_df(ts_c(kof_cons_unemp_5y.max, kof_cons_unemp_5y.mean, kof_cons_unemp_5y.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_5y.min, ymax = kof_cons_unemp_5y.max), fill = "#df7c18", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_unemp_5y.mean - kof_cons_unemp_5y.stdev, ymax = kof_cons_unemp_5y.mean + kof_cons_unemp_5y.stdev), fill = "#df7c18", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_unemp_5y.mean), color = "#df7c18", linewidth = 1) +
-  scale_x_date(limits = c(date("2015-01-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0, 6), breaks = seq(0, 6, 1)) +
+  scale_x_date(expand = c(0, 0), limits = c(date("2015-01-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 6), breaks = seq(0, 6, 1)) +
   theme_bw() +
   labs(
     title = "KOF consensus real unemployment rate forecast",

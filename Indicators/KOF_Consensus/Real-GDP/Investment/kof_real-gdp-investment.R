@@ -56,8 +56,8 @@ ts_df(ts_c(kof_cons_invest_cy.max, kof_cons_invest_cy.mean, kof_cons_invest_cy.m
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_invest_cy.min, ymax = kof_cons_invest_cy.max), fill = "#ae49a2", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_invest_cy.mean - kof_cons_invest_cy.stdev, ymax = kof_cons_invest_cy.mean + kof_cons_invest_cy.stdev), fill = "#ae49a2", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_invest_cy.mean), color = "#ae49a2", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
   theme_bw() +
   labs(
     title = "KOF consensus investment forecast",
@@ -109,8 +109,8 @@ ts_df(ts_c(kof_cons_invest_ny.max, kof_cons_invest_ny.mean, kof_cons_invest_ny.m
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_invest_ny.min, ymax = kof_cons_invest_ny.max), fill = "#ae49a2", alpha = 0.5) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_invest_ny.mean - kof_cons_invest_ny.stdev, ymax = kof_cons_invest_ny.mean + kof_cons_invest_ny.stdev), fill = "#ae49a2", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_invest_ny.mean), color = "#ae49a2", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
   theme_bw() +
   labs(
     title = "KOF consensus investment forecast",

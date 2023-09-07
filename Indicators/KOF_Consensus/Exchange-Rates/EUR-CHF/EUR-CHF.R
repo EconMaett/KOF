@@ -58,8 +58,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_3m.min, ymax = kof_cons_eurchf_3m.max), fill = "#374e8e", alpha = 0.2) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_3m.mean - kof_cons_eurchf_3m.stdev, ymax = kof_cons_eurchf_3m.mean + kof_cons_eurchf_3m.stdev), fill = "#374e8e", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_eurchf_3m.mean), color = "#374e8e", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0.5, 2)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0.5, 2)) +
   theme_bw() +
   labs(
     title = "KOF consensus EUR/CHF forecast - 3 months ahead",
@@ -112,8 +112,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_12m.min, ymax = kof_cons_eurchf_12m.max), fill = "#374e8e", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_eurchf_12m.mean - kof_cons_eurchf_12m.stdev, ymax = kof_cons_eurchf_12m.mean + kof_cons_eurchf_12m.stdev), fill = "#374e8e", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_eurchf_12m.mean), color = "#374e8e", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0.5, 2)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0.5, 2)) +
   theme_bw() +
   labs(
     title = "KOF consensus EUR/CHF forecast - 12 months ahead",

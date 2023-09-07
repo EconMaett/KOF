@@ -30,7 +30,7 @@ kof_ncst_data |>
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_y_continuous(limits = c(-0.5, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(-0.5, 1)) +
   scale_color_manual(values = c("#ac004f", "#e3b13e", "#7e7e8f", "#df7c18", "#8aabfd", "#ce4631", "#374e8e", "#383751")) +
   labs(
     title = "Current GDP quarter-on-quarter growth forecast for Q3 2023 (in %)",
@@ -56,7 +56,7 @@ kof_ncst_data |>
   ggplot(mapping = aes(x = time, y = value, color = id)) +
   geom_line(linewidth = 1) +
   geom_hline(yintercept = 0, color = "black", linetype = "dashed", show.legend = FALSE) +
-  scale_y_continuous(limits = c(-0.5, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(-0.5, 1)) +
   scale_color_manual(values = c("#ac004f", "#e3b13e", "#7e7e8f", "#df7c18", "#8aabfd", "#ce4631", "#374e8e", "#383751")) +
   labs(
     title = "Current GDP quarter-on-quarter growth forecast for Q4 2023 (in %)",

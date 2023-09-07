@@ -51,8 +51,8 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ausbl)) |>
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>KOF-Baublatt-Index</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",
@@ -89,8 +89,8 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_fitted)) |>
   geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>Fitted values</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",
@@ -122,8 +122,8 @@ ts_df(ts_c(kof_nom_const_inv, kof_baubl_ncst)) |>
   geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 20), breaks = c(-15, -10, -5, 0, 5, 10, 15, 20)) +
   scale_color_manual(values = c("#1B9E77", "#374e8e")) +
   labs(
     title = "<span style = 'color: #1B9E77;'>Nowcast of KOF-Baublatt-Index</span> and <span style = 'color: #374e8e;'>nominal construction investment (in %)</span>.",

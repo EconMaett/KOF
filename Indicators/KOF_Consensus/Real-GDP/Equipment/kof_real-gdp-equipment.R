@@ -56,8 +56,8 @@ ts_df(ts_c(kof_cons_equip_cy.max, kof_cons_equip_cy.mean, kof_cons_equip_cy.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_cy.min, ymax = kof_cons_equip_cy.max), fill = "#006d64", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_cy.mean - kof_cons_equip_cy.stdev, ymax = kof_cons_equip_cy.mean + kof_cons_equip_cy.stdev), fill = "#006d64", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_equip_cy.mean), color = "#006d64", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
   theme_bw() +
   labs(
     title = "KOF consensus equipment investment forecast",
@@ -109,8 +109,8 @@ ts_df(ts_c(kof_cons_equip_ny.max, kof_cons_equip_ny.mean, kof_cons_equip_ny.min,
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_ny.min, ymax = kof_cons_equip_ny.max), fill = "#006d64", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_equip_ny.mean - kof_cons_equip_ny.stdev, ymax = kof_cons_equip_ny.mean + kof_cons_equip_ny.stdev), fill = "#006d64", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_equip_ny.mean), color = "#006d64", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-15, 15), breaks = seq(-15, 15, 5)) +
   theme_bw() +
   labs(
     title = "KOF consensus equipment investment forecast",

@@ -56,8 +56,8 @@ ts_df(ts_c(kof_cons_investbau_cy.max, kof_cons_investbau_cy.mean, kof_cons_inves
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_cy.min, ymax = kof_cons_investbau_cy.max), fill = "#374e8e", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_cy.mean - kof_cons_investbau_cy.stdev, ymax = kof_cons_investbau_cy.mean + kof_cons_investbau_cy.stdev), fill = "#374e8e", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_investbau_cy.mean), color = "#374e8e", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-6, 6)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-6, 6)) +
   theme_bw() +
   labs(
     title = "KOF consensus real construction investment forecast",
@@ -109,8 +109,8 @@ ts_df(ts_c(kof_cons_investbau_ny.max, kof_cons_investbau_ny.mean, kof_cons_inves
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_ny.min, ymax = kof_cons_investbau_ny.max), fill = "#374e8e", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_investbau_ny.mean - kof_cons_investbau_ny.stdev, ymax = kof_cons_investbau_ny.mean + kof_cons_investbau_ny.stdev), fill = "#374e8e", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_investbau_ny.mean), color = "#374e8e", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-6, 6)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-6, 6)) +
   theme_bw() +
   labs(
     title = "KOF consensus real construction investment forecast",

@@ -42,8 +42,8 @@ ts_df(ts_c(kof_globalbaro_lead, kof_globalbaro_coi)) |>
   geom_hline(yintercept = 100, color = "darkgrey", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(50, 150)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(50, 150)) +
   scale_color_manual(
     values = c("#374e8e", "#1B9E77"),
     breaks = c("kof_globalbaro_coi", "kof_globalbaro_lead")) +

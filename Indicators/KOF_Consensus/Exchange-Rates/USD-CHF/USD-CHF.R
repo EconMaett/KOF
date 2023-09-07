@@ -59,8 +59,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_usdchf_3m.min, ymax = kof_cons_usdchf_3m.max), fill = "#1B9E77", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_usdchf_3m.mean - kof_cons_usdchf_3m.stdev, ymax = kof_cons_usdchf_3m.mean + kof_cons_usdchf_3m.stdev), fill = "#1B9E77", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_usdchf_3m.mean), color = "#1B9E77", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0.5, 2)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0.5, 2)) +
   theme_bw() +
   labs(
     title = "KOF consensus USD/CHF forecast - 3 months ahead",
@@ -113,8 +113,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_usdchf_12m.min, ymax = kof_cons_usdchf_12m.max), fill = "#1B9E77", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_usdchf_12m.mean - kof_cons_usdchf_12m.stdev, ymax = kof_cons_usdchf_12m.mean + kof_cons_usdchf_12m.stdev), fill = "#1B9E77", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_usdchf_12m.mean), color = "#1B9E77", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0.5, 2)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0.5, 2)) +
   theme_bw() +
   labs(
     title = "KOF consensus USD/CHF forecast - 12 months ahead",

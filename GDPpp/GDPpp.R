@@ -58,8 +58,8 @@ rbind(GDPp, GDPpp) |>
   geom_line(mapping = aes(x = date, y = GDPpp), color = "#ac004f", linewidth = 1) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "black", show.legend = NULL) +
   geom_rect(data = usrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
-  scale_x_date(limits = c(date("2003-01-01"), date("2017-01-01")), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-10, 10), breaks = seq(-10, 10, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date("2003-01-01"), date("2017-01-01")), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-10, 10), breaks = seq(-10, 10, 5)) +
   theme_bw() +
   labs(
     title = "Real GDP Growth Mesures", 

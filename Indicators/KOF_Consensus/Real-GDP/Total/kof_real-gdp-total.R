@@ -58,8 +58,8 @@ ts_df(ts_c(kof_cons_gdp_cy.max, kof_cons_gdp_cy.mean, kof_cons_gdp_cy.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_cy.min, ymax = kof_cons_gdp_cy.max), fill = "#8aabfd", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_cy.mean - kof_cons_gdp_cy.stdev, ymax = kof_cons_gdp_cy.mean + kof_cons_gdp_cy.stdev), fill = "#8aabfd", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_cy.mean), color = "#8aabfd", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
   theme_bw() +
   labs(
     title = "KOF consensus real GDP growth forecast",
@@ -110,8 +110,8 @@ ts_df(ts_c(kof_cons_gdp_ny.max, kof_cons_gdp_ny.mean, kof_cons_gdp_ny.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_ny.min, ymax = kof_cons_gdp_ny.max), fill = "#8aabfd", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_ny.mean - kof_cons_gdp_ny.stdev, ymax = kof_cons_gdp_ny.mean + kof_cons_gdp_ny.stdev), fill = "#8aabfd", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_ny.mean), color = "#8aabfd", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
   theme_bw() +
   labs(
     title = "KOF consensus real GDP growth forecast",
@@ -162,8 +162,8 @@ ts_df(ts_c(kof_cons_gdp_5y.max, kof_cons_gdp_5y.mean, kof_cons_gdp_5y.min, kof_c
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_5y.min, ymax = kof_cons_gdp_5y.max), fill = "#8aabfd", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_gdp_5y.mean - kof_cons_gdp_5y.stdev, ymax = kof_cons_gdp_5y.mean + kof_cons_gdp_5y.stdev), fill = "#8aabfd", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_gdp_5y.mean), color = "#8aabfd", linewidth = 1) +
-  scale_x_date(limits = c(date("2016-01-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
+  scale_x_date(expand = c(0, 0), limits = c(date("2016-01-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-6, 6), breaks = seq(-6, 6, 3)) +
   theme_bw() +
   labs(
     title = "KOF consensus real GDP growth forecast",

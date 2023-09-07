@@ -31,8 +31,8 @@ ts_df(kof_baro) |>
   geom_hline(yintercept = 100, color = "darkgrey", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value), linewidth = 1, color = "#1B9E77") +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(50, 150), breaks = seq(50, 150, 25)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(50, 150), breaks = seq(50, 150, 25)) +
   labs(
     title = "KOF Economic Barometer",
     subtitle = "Automatic combination of 200 out of a total of 500 economic time series",

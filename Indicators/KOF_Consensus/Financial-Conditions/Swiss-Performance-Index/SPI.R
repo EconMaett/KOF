@@ -59,7 +59,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_spi_3m.min, ymax = kof_cons_spi_3m.max), fill = "#ac004f", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_spi_3m.mean - kof_cons_spi_3m.stdev, ymax = kof_cons_spi_3m.mean + kof_cons_spi_3m.stdev), fill = "#ac004f", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_spi_3m.mean), color = "#ac004f", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0)) +
   theme_bw() +
   labs(
     title = "KOF consensus Swiss Performance Index (SPI) forecast",
@@ -112,7 +113,8 @@ ts_df(ts_c(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_spi_3m.min, ymax = kof_cons_spi_3m.max), fill = "#ac004f", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_spi_3m.mean - kof_cons_spi_3m.stdev, ymax = kof_cons_spi_3m.mean + kof_cons_spi_3m.stdev), fill = "#ac004f", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_spi_3m.mean), color = "#ac004f", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0)) +
   theme_bw() +
   labs(
     title = "KOF consensus Swiss Performance Index (SPI) forecast",

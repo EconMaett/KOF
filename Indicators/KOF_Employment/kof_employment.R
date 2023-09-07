@@ -52,8 +52,8 @@ ts_df(ts_c(kof_empl_ass, kof_empl_exp, kof_empl_ind)) |>
   geom_hline(yintercept = 0, color = "black", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-25, 20), breaks = seq(-25, 20, 5)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-25, 20), breaks = seq(-25, 20, 5)) +
   scale_color_manual(
     values = c("#006d64", "#478c5b", "#ae49a2"),
     breaks = c("kof_empl_exp", "kof_empl_ass", "kof_empl_ind")

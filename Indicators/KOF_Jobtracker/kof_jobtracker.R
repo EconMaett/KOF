@@ -43,8 +43,8 @@ ts_df(ts_c(kof_jobtracker_total)) |>
   geom_hline(yintercept = 100, color = "darkgrey", linetype = "solid", show.legend = FALSE) +
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value), color = "#374e8e", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0, 180), breaks = seq(0, 180, 30)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 180), breaks = seq(0, 180, 30)) +
   theme_bw() +
   labs(
     title = "Weekly index of online job postings",
@@ -118,8 +118,8 @@ ts_df(ts_c(
   geom_rect(data = chrecdp, aes(xmin = recession_start, xmax = recession_end, ymin = -Inf, ymax = +Inf), fill = "darkgrey", alpha = 0.3) +
   geom_line(mapping = aes(x = time, y = value, color = id), linewidth = 1) +
   scale_color_manual(values = c("#374e8e", "#ac004f", "#383751", "#df7c18", "#478c5b", "#a07bde", "#8aabfd", "#7e7e8f")) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0, 180), breaks = seq(0, 180, 30)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 180), breaks = seq(0, 180, 30)) +
   theme_bw() +
   labs(
     title = "Weekly index of online job postings by canton",

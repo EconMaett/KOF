@@ -58,8 +58,8 @@ ts_df(ts_c(kof_cons_pr_cy.max, kof_cons_pr_cy.mean, kof_cons_pr_cy.min, kof_cons
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_cy.min, ymax = kof_cons_pr_cy.max), fill = "#006d64", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_cy.mean - kof_cons_pr_cy.stdev, ymax = kof_cons_pr_cy.mean + kof_cons_pr_cy.stdev), fill = "#006d64", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_pr_cy.mean), color = "#006d64", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
     title = "KOF consensus inflation forecast",
@@ -113,8 +113,8 @@ ts_df(
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_ny.min, ymax = kof_cons_pr_ny.max), fill = "#006d64", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_ny.mean - kof_cons_pr_ny.stdev, ymax = kof_cons_pr_ny.mean + kof_cons_pr_ny.stdev), fill = "#006d64", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_pr_ny.mean), color = "#006d64", linewidth = 1) +
-  scale_x_date(limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
+  scale_x_date(expand = c(0, 0), limits = c(date(start_date), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
     title = "KOF consensus inflation forecast",
@@ -166,8 +166,8 @@ ts_df(ts_c(kof_cons_pr_5y.max, kof_cons_pr_5y.mean, kof_cons_pr_5y.min, kof_cons
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_5y.min, ymax = kof_cons_pr_5y.max), fill = "#006d64", alpha = 0.3) +
   geom_ribbon(mapping = aes(x = time, ymin = kof_cons_pr_5y.mean - kof_cons_pr_5y.stdev, ymax = kof_cons_pr_5y.mean + kof_cons_pr_5y.stdev), fill = "#006d64", alpha = 0.5) +
   geom_line(mapping = aes(x = time, y = kof_cons_pr_5y.mean), color = "#006d64", linewidth = 1) +
-  scale_x_date(limits = c(date("2015-02-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
+  scale_x_date(expand = c(0, 0), limits = c(date("2015-02-01"), today()), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(-3, 4), breaks = c(-3, -2, -1, 0, 1, 2, 3, 4)) +
   theme_bw() +
   labs(
     title = "KOF consensus inflation forecast",
