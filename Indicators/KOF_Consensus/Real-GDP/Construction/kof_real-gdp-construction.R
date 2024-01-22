@@ -1,7 +1,6 @@
 # ************************************************************************
 # Construction investment ----
 # Feel free to copy, adapt, and use this code for your own purposes.
-# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----

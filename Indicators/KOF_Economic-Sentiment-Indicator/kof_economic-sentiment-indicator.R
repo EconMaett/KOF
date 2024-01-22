@@ -3,7 +3,6 @@
 # ************************************************************************
 # URL: https://kof.ethz.ch/prognosen-indikatoren/indikatoren/kof-economic-sentiment-indicator.html
 # Feel free to copy, adapt, and use this code for your own purposes.
-# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----
@@ -25,6 +24,7 @@ eu_esi <- get_eurostat(id = "teibs010", time_format = "date", select_time = "M",
 
 eu_esi <- eu_esi |> 
   filter(geo == "EU27_2020") |> 
+  mutate(time = TIME_PERIOD ) |> 
   select(time, values) |> 
   rename(eu_esi = values)
 

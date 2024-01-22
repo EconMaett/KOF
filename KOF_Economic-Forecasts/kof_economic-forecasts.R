@@ -2,7 +2,6 @@
 # KOF Economic Forecasts -----
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/forecasts/kof-economic-forecast.html
 # Feel free to copy, adapt, and use this code for your own purposes.
-# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----
@@ -15,8 +14,9 @@ library(readxl)
 ## Access the data ----
 
 kof_ec_fcst_url <- "https://datenservice.kof.ethz.ch/api/v1/public/sets/vja_public?mime=xlsx"
-download.file(url = kof_ec_fcst_url, destfile = "KOF_Economic_Forecasts/KOF_Economic_Forecasts.xlsx", method = "curl")
-kof_ec_fcst <- readxl::read_excel(path = "KOF_Economic_Forecasts/KOF_Economic_Forecasts.xlsx")
+download.file(url = kof_ec_fcst_url, destfile = "KOF_Economic-Forecasts/KOF_Economic-Forecasts.xlsx")
+kof_ec_fcst <- readxl::read_excel(path = "KOF_Economic-Forecasts/KOF_Economic-Forecasts.xlsx")
+readxl::read_excel(path = "KOF_Economic-Forecasts/KOF_Economic-Forecasts.xlsx", )
 
 names(kof_ec_fcst)
 # date"                                                             

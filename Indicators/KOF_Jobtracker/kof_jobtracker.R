@@ -3,7 +3,6 @@
 # URL: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/swiss-job-tracker.html
 # Project website: https://swissjobtracker.ch/#/
 # Feel free to copy, adapt, and use this code for your own purposes.
-# Matthias Spichiger (matthias.spichiger@bluewin.ch)
 # ************************************************************************
 
 ## Load packages ----
